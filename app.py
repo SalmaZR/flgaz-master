@@ -1,7 +1,13 @@
 from flask import Flask, request, render_template, redirect, url_for
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 import csv
 
 app = Flask(__name__)
+limiter = Limiter(
+    app,
+    key_func=get_remote_address,
+    default_limits=["5 per minute", "1 per second"],
 
 @app.route('/')
 def home():
