@@ -43,7 +43,7 @@ def dump_to_csv(d):
 		writer.writerow(donnees)
 
 from flask import Flask, Response, redirect, url_for, request, session, abort
-from flask.login import LoginManager, UserMixin, \
+from flask_login import LoginManager, UserMixin, \
                                 login_required, login_user, logout_user 
 
 # config
