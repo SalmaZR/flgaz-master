@@ -75,10 +75,10 @@ users = [User(id) for id in range(1, 21)]
 
 
 # some protected url
-@app.route('/login1')
-@login_required
-def home():
-    return Response("Hello World!")
+#@app.route('/try')
+#@login_required
+#def home():
+#    return Response("Hello World!")
 
  
 # somewhere to login
