@@ -51,7 +51,7 @@ app.config.update(
     DEBUG = True,
     SECRET_KEY = 'secret_xxx'
 )
-
+app.config['TESTING'] = True
 # flask-login
 login_manager = LoginManager()
 login_manager.init_app(app)
