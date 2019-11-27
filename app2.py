@@ -52,6 +52,7 @@ app.config.update(
     SECRET_KEY = 'secret_xxx'
 )
 app.config['TESTING'] = True
+
 # flask-login
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -77,7 +78,7 @@ users = [User(id) for id in range(1, 21)]
 # some protected url
 @app.route('/')
 @login_required
-def home():
+def home2():
     return Response("Hello World!")
 
  
