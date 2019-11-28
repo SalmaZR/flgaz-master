@@ -21,8 +21,8 @@ def home():
     #print ('Bienvenue !')
     return redirect(url_for('login'))
 
-@app.route('/<username>/gaz', methods=['GET','POST'])
-def save_gazouille(username):
+@app.route('/gaz', methods=['GET','POST'])
+def save_gazouille():
     if not session.get('loggedin'):
 	    return redirect(url_for('login'))
     else:
@@ -103,7 +103,7 @@ def login():
             session['username'] = account['username']
             # Redirect to home page
             #return 'Logged in successfully!'
-            return redirect(url_for('save_gazouille(username)'))
+            return redirect(url_for('save_gazouille'))
         else:
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
