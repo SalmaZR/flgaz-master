@@ -23,17 +23,17 @@ def home():
 
 @app.route('/gaz', methods=['GET','POST'])
 def save_gazouille():
-    if not session.get('loggedin'):
-	    return redirect(url_for('login'))
-    else:
+    #if not session.get('loggedin'):
+	    #return redirect(url_for('login'))
+    #else:
 
-        if request.method == 'POST':
-            print(request.form)
-            dump_to_csv(request.form)
-            return redirect(url_for('timeline'))
+    if request.method == 'POST':
+        print(request.form)
+        dump_to_csv(request.form)
+        return redirect(url_for('timeline'))
 		#return "OK"
-        if request.method == 'GET':
-            return render_template('formulaire.html')
+    if request.method == 'GET':
+        return render_template('formulaire.html')
 
 @app.route('/timeline', methods=['GET'])
 def timeline():
@@ -48,7 +48,7 @@ def parse_from_csv():
 			gaz.append({"user":row[0], "text":row[1]})
 	return gaz
 
-@app.route('/timeline/<username>', methods=['GET'])
+@app.route('/timeline/<username>/', methods=['GET'])
 def timelinePerUser(username):
 	gaz = parse_user_from_csv(username)
 	return render_template("timeline.html", gaz = gaz)
