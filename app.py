@@ -10,7 +10,7 @@ import re
 
 app = Flask(__name__)
 cache = Cache(app,config={'CACHE_TYPE': 'simple'})
-cors = CORS(app, resources={r"/": {"origins": "*"}})
+cors = CORS(app, resources={r"/login": {"origins": "*"}})
 limiter = Limiter(
     app,
     key_func=get_remote_address,
