@@ -1,7 +1,10 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, session
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import csv
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
+import re
 
 app = Flask(__name__)
 limiter = Limiter(
@@ -41,3 +44,24 @@ def dump_to_csv(d):
 	with open('./gazouilles.csv', 'a', newline='', encoding='utf-8') as f:
 		writer = csv.writer(f)
 		writer.writerow(donnees)
+
+
+#Add Login Code
+app.secret_key = 'secret_key'
+
+# Enter your database connection details below
+app.config['MYSQL_HOST'] = 'SalmaZR.mysql.pythonanywhere-services.com'
+app.config['MYSQL_USER'] = 'SalmaZR'
+app.config['MYSQL_PASSWORD'] = 'Zr@ibi@1994'
+app.config['MYSQL_DB'] = 'SalmaZR$flask_project'
+
+# Intialize MySQL
+mysql = MySQL(app)
+
+
+# http://localhost:5000/pythonlogin/ - this will be the login page, we need to use both GET and POST requests
+@app.route('/login/', methods=['GET', 'POST'])
+def login():
+    return render_template('index.html', msg='')
+
+
