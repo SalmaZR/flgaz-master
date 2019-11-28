@@ -45,7 +45,7 @@ def parse_from_csv():
 	return gaz
 
 @app.route('/timeline/<username>', methods=['GET'])
-def timeline(username):
+def timelinePerUser(username):
 	gaz = parse_user_from_csv(username)
 	return render_template("timeline.html", gaz = gaz)
 				
