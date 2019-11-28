@@ -67,7 +67,7 @@ def dump_to_csv(d):
     donnees = [d["user-name"][:20],d["user-text"][:280] ]
     dupl_flag = False
     for row in gaz:
-	    if d["user-name"] == row[0] and d["user-text"] == row[1]:
+	    if row == donnees:
 		    dupl_flag = True
     if dupl_flag == False:
 	    with open('./gazouilles.csv', 'a', newline='', encoding='utf-8') as f:
