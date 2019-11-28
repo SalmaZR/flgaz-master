@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for, session
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-#from flask_cache import Cache
+from flask_cache import Cache
 #from flask_cors import CORS
 import csv
 from flask_mysqldb import MySQL
@@ -9,7 +9,7 @@ import MySQLdb.cursors
 import re
 
 app = Flask(__name__)
-#cache = Cache(app,config={'CACHE_TYPE': 'simple'})
+cache = Cache(app,config={'CACHE_TYPE': 'simple'})
 #cors = CORS(app, resources={r"/": {"origins": "*"}})
 limiter = Limiter(
     app,
