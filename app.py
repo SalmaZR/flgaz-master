@@ -17,7 +17,7 @@ def home():
     #print ('Bienvenue !')
     return redirect(url_for('login'))
 
-@app.route('/session.username/gaz', methods=['GET','POST'])
+@app.route('/'session.username'/gaz', methods=['GET','POST'])
 def save_gazouille():
     if not session.get('loggedin'):
 	    return redirect(url_for('login'))
