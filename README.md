@@ -86,3 +86,4 @@ def save_gazouille():
 - https://www.pythonanywhere.com/forums/topic/11589/
 - https://pythonspot.com/login-authentication-with-flask/
 - https://blog.pythonanywhere.com/121/
+- https://pythonhosted.org/Flask-Cache/
