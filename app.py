@@ -59,7 +59,7 @@ def parse_user_from_csv(username):
 	return gazUser
 
 def dump_to_csv(d):
-	donnees = [d["user-name"],d["user-text"] ]
+	donnees = [d["user-name"],d["user-text"][:280] ]
 	with open('./gazouilles.csv', 'a', newline='', encoding='utf-8') as f:
 		writer = csv.writer(f)
 		writer.writerow(donnees)
@@ -68,7 +68,7 @@ def dump_to_csv(d):
 #Add Login Code
 app.secret_key = 'secret_key'
 
-# Enter your database connection details below
+# Database Connection
 app.config['MYSQL_HOST'] = 'SalmaZR.mysql.pythonanywhere-services.com'
 app.config['MYSQL_USER'] = 'SalmaZR'
 app.config['MYSQL_PASSWORD'] = 'Zr@ibi@1994'
