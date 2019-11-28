@@ -62,9 +62,9 @@ mysql = MySQL(app)
 # http://localhost:5000/pythonlogin/ - this will be the login page, we need to use both GET and POST requests
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
-    #return render_template('index.html', msg='')
+	#return render_template('index.html', msg='')
     msg = 'CONNECTION ERROR'
-	if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         # Create variables for easy access
         username = request.form['username']
         password = request.form['password']
