@@ -54,7 +54,7 @@ def parse_user_from_csv(username):
 	with open('./gazouilles.csv', 'r') as f:
 		reader = csv.reader(f)
 		for row in reader:
-		    if row[0]=username:
+		    if row[0]==username:
 			    gazUser.append({"user":row[0], "text":row[1]})
 	return gazUser
 
