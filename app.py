@@ -14,7 +14,8 @@ limiter = Limiter(
 
 @app.route('/')
 def home():
-    return 'Bienvenue !'
+    #print ('Bienvenue !')
+    return redirect(url_for('login'))
 
 @app.route('/gaz', methods=['GET','POST'])
 def save_gazouille():
