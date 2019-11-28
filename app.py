@@ -104,7 +104,7 @@ def register():
         password = request.form['password']
         email = request.form['email']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM accounts WHERE username LIKE %s', (username))
+        cursor.execute('SELECT * FROM accounts WHERE username LIKE %s', (username,))
         account = cursor.fetchone()
         if account:
             msg = 'Account already exists!'
