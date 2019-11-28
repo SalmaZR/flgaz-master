@@ -63,10 +63,13 @@ def parse_user_from_csv(username):
 	return gazUser
 
 def dump_to_csv(d):
-	donnees = [d["user-name"][:20],d["user-text"][:280] ]
-	with open('./gazouilles.csv', 'a', newline='', encoding='utf-8') as f:
-		writer = csv.writer(f)
-		writer.writerow(donnees)
+    gaz = parse_from_csv()
+    donnees = [d["user-name"][:20],d["user-text"][:280] ]
+    for row in gaz:
+	    if d["user-name"] = row[0] and d["user-text"]= row[1]:
+	        with open('./gazouilles.csv', 'a', newline='', encoding='utf-8') as f:
+		        writer = csv.writer(f)
+		        writer.writerow(donnees)
 
 
 #Add Login Code
