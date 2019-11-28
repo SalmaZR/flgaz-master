@@ -84,6 +84,6 @@ def login():
         else:
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
-	return render_template('index.html', msg=msg)
+    return render_template('index.html', msg=msg)
 
 
