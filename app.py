@@ -59,7 +59,7 @@ def parse_user_from_csv(username):
 	return gazUser
 
 def dump_to_csv(d):
-	donnees = [d["user-name"],d["user-text"][:280] ]
+	donnees = [d["user-name"][:20],d["user-text"][:280] ]
 	with open('./gazouilles.csv', 'a', newline='', encoding='utf-8') as f:
 		writer = csv.writer(f)
 		writer.writerow(donnees)
