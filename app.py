@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for, session
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-from flask.cache import Cache
+from flask_cache import Cache
 #from flask_cors import CORS
 import csv
 from flask_mysqldb import MySQL
