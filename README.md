@@ -5,10 +5,10 @@ Here's the steps taken to improve the project :
 - Add authentication to the application.
 - Prevent usage of the pages without authorization.
 - Force authentication.
+- Allow caching and cache control.
 
 Here are the needed steps to make the application better :
 
-- Allow caching and cache control.
 - Secure the credentials for the database.
 - Prevent SQL Injections.
 - Limit the number of characters in a tweet.
@@ -78,6 +78,8 @@ def save_gazouille():
     
 - Added a logout function at /logout.
 - Added a function to register users inside of the Base.
+
+Cache was added and allows public caching.
 
 # Documentation used :
 
