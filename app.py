@@ -124,7 +124,7 @@ def register():
             # Account doesnt exists and the form data is valid, now insert new account into accounts table
             cursor.execute('INSERT INTO accounts VALUES (NULL, %s, %s, %s)', (username, password, email))
             mysql.connection.commit()
-            return 'You have successfully registered!'
+            return redirect(url_for('login'))
     elif request.method == 'POST':
         msg = 'Please fill out the form!'
 
