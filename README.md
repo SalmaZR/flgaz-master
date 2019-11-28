@@ -79,3 +79,10 @@ def save_gazouille():
 - Added a logout function at /logout.
 - Added a function to register users inside of the Base.
 
+# Documentation used :
+
+- https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-v-user-logins
+- https://codeshack.io/login-system-python-flask-mysql/
+- https://www.pythonanywhere.com/forums/topic/11589/
+- https://pythonspot.com/login-authentication-with-flask/
+- https://blog.pythonanywhere.com/121/
