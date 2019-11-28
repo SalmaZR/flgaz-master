@@ -99,7 +99,7 @@ def login():
             session['username'] = account['username']
             # Redirect to home page
             #return 'Logged in successfully!'
-            return redirect(url_for('save_gazouille(username)'))
+            return redirect(url_for('save_gazouille'))
         else:
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
