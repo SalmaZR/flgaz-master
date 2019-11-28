@@ -69,7 +69,7 @@ def dump_to_csv(d):
     for row in gaz:
 	    if d["user-name"] != row[0] and d["user-text"] != row[1]:
 			dupl_flag = True
-	if dupl_flag == False
+    if dupl_flag == False:
 	    with open('./gazouilles.csv', 'a', newline='', encoding='utf-8') as f:
 		    writer = csv.writer(f)
 		    writer.writerow(donnees)
