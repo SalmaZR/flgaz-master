@@ -10,7 +10,7 @@ app = Flask(__name__)
 limiter = Limiter(
     app,
     key_func=get_remote_address,
-    default_limits=["5 per minute", "1 per second"])
+    default_limits=["10 per minute", "3 per second"])
 
 @app.route('/')
 def home():
