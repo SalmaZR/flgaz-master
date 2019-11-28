@@ -44,6 +44,20 @@ def parse_from_csv():
 			gaz.append({"user":row[0], "text":row[1]})
 	return gaz
 
+@app.route('/timeline/<username>', methods=['GET'])
+def timeline(username):
+	gaz = parse_user_from_csv(username)
+	return render_template("timeline.html", gaz = gaz)
+				
+def parse_user_from_csv(username):
+	gazUser = []
+	with open('./gazouilles.csv', 'r') as f:
+		reader = csv.reader(f)
+		for row in reader:
+		    if row[0]=username:
+			    gazUser.append({"user":row[0], "text":row[1]})
+	return gazUser
+
 def dump_to_csv(d):
 	donnees = [d["user-name"],d["user-text"] ]
 	with open('./gazouilles.csv', 'a', newline='', encoding='utf-8') as f:
