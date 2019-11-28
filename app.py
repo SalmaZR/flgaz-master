@@ -19,7 +19,7 @@ def home():
 
 @app.route('/gaz', methods=['GET','POST'])
 def save_gazouille():
-    if not session.get('logged_in'):
+    if not session.get('loggedin'):
 	    return redirect(url_for('login'))
     else:
 
