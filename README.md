@@ -8,10 +8,10 @@ Here's the steps taken to improve the project :
 - Allow caching and cache control.
 - Limit the number of characters in a tweet.
 - Allow search of messages by user.
+- Secure the credentials for the database.
 
 Here are the needed steps to make the application better :
 
-- Secure the credentials for the database.
 - Prevent SQL Injections.
 - Access-Control Allow Origin.
 - Remove the duplicated messages.
