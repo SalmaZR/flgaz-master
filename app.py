@@ -39,18 +39,18 @@ def save_gazouille():
 
 @app.route('/timeline', methods=['GET'])
 def timeline():
-    filteredGaz = set() 
-    for line in fileinput.FileInput('./gazouilles.csv', inplace=1):
-        if line in filteredGaz: 
-	        continue 
-        filteredGaz.add(line)
-        print line
-    gaz = parse_from_csv()
+    with open('./gazouilles.csv', 'r') as in_file, open('./filteredGaz.csv','w') as out_file:
+	    for line in in_file:
+		    if line in  filteredGaz:
+		        continue
+		    filteredGaz.add(line)
+            out_file.write(line)
+    gaz = parse_from_csv('./filteredGaz.csv')
     return render_template("timeline.html", gaz = gaz)
 
-def parse_from_csv():
+def parse_from_csv(filename):
 	gaz = []
-	with open('./gazouilles.csv', 'r') as f:
+	with open(filename, 'r') as f:
 		reader = csv.reader(f)
 		for row in reader:
 			gaz.append({"user":row[0], "text":row[1]})
