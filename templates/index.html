@@ -13,6 +13,8 @@
 			<div class="links">
 				<a href="{{ url_for('login') }}" class="active">Login</a>
 				<a href="{{ url_for('register') }}" class="active">Register</a>
+				<a href="{{ url_for('save_gazouille') }}" class="active">Post</a>
+				<a href="{{ url_for('timeline') }}" class="active">Timeline</a>
 			</div>
 			<form action="{{ url_for('login') }}" method="post">
 				<label for="username">
