@@ -44,7 +44,7 @@ def timeline():
         if line in filteredGaz: 
 	        continue 
         filteredGaz.add(line)
-        print line, 
+        print line
     gaz = parse_from_csv()
     return render_template("timeline.html", gaz = gaz)
 
