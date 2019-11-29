@@ -80,6 +80,7 @@ def save_gazouille():
 - Added a function to register users inside of the Base.
 
 Cache was added and allows public caching.
+In order to start the website, use `app.py`in Pythonanywhere and reload the website.
 
 # Documentation used :
 
