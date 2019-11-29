@@ -3,6 +3,7 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from flask_cache import Cache
 from flask_cors import CORS
+from config import *
 import csv
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
@@ -80,10 +81,15 @@ def dump_to_csv(d):
 app.secret_key = 'secret_key'
 
 # Database Connection
-app.config['MYSQL_HOST'] = 'SalmaZR.mysql.pythonanywhere-services.com'
-app.config['MYSQL_USER'] = 'SalmaZR'
-app.config['MYSQL_PASSWORD'] = 'Zr@ibi@1994'
-app.config['MYSQL_DB'] = 'SalmaZR$flask_project'
+datahost = config(MYSQL_HOST)
+datauser = config(MYSQL_USER)
+datapass = config(MYSQL_PASS)
+datadb = config(MYSQL_DB)
+
+app.config['MYSQL_HOST'] = datahost
+app.config['MYSQL_USER'] = datauser
+app.config['MYSQL_PASSWORD'] = datapass
+app.config['MYSQL_DB'] = datadb
 
 # Intialize MySQL
 mysql = MySQL(app)
