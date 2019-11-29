@@ -39,13 +39,11 @@ def save_gazouille():
 
 @app.route('/timeline', methods=['GET'])
 def timeline():
-    with open('./gazouilles.csv', 'r') as in_file, open('./filteredGaz.csv','w') as out_file:
-	    for line in in_file:
-		    if line in  filteredGaz:
-		        continue
-		    filteredGaz.add(line)
-            out_file.write(line)
-    gaz = parse_from_csv('./filteredGaz.csv')
+    gaz = parse_from_csv('./gazouilles.csv')
+    #filteredGaz = set(gaz)
+    #with open('./filteredGaz.csv','w') as out_file:
+     #   writer = csv.writer(out_file)
+      #  writer.write(filteredGaz)
     return render_template("timeline.html", gaz = gaz)
 
 def parse_from_csv(filename):
@@ -60,7 +58,7 @@ def parse_from_csv(filename):
 def timelinePerUser(username):
 	gaz = parse_user_from_csv(username)
 	return render_template("timeline.html", gaz = gaz)
-				
+
 def parse_user_from_csv(username):
 	gazUser = []
 	with open('./gazouilles.csv', 'r') as f:
@@ -81,8 +79,9 @@ def dump_to_csv(d):
 	    with open('./gazouilles.csv', 'a', newline='', encoding='utf-8') as f:
 		    writer = csv.writer(f)
 		    writer.writerow(donnees)
- 
-	
+
+
+
 
 #Add Login Code
 app.secret_key = 'secret_key'
@@ -115,7 +114,7 @@ def login():
         cursor.execute('SELECT * FROM accounts WHERE username = %s AND password = %s', (username, password))
         # Fetch one record and return result
         account = cursor.fetchone()
-		        
+
         if account:
             # Create session data, we can access this data in other routes
             session['loggedin'] = True
@@ -137,8 +136,8 @@ def logout():
    session.pop('username', None)
    # Redirect to login page
    return redirect(url_for('login'))
-   
-   
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     msg = ''
