@@ -67,10 +67,11 @@ def dump_to_csv(d):
     gaz = parse_from_csv()
     donnees = [d["user-name"][:20],d["user-text"][:280] ]
     dupl_flag = False
+	mot = 'barre'
     for row in gaz:
 	    if row["user"] == d["user-name"][:20] and row["text"] == d["user-text"][:280] :
 		    dupl_flag = True
-    if dupl_flag == False:
+    if dupl_flag == False and mot not in d["user-text"]:
 	    with open('./gazouilles.csv', 'a', newline='', encoding='utf-8') as f:
 		    writer = csv.writer(f)
 		    writer.writerow(donnees)
