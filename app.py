@@ -67,7 +67,7 @@ def dump_to_csv(d):
     gaz = parse_from_csv()
     donnees = [d["user-name"][:20],d["user-text"][:280] ]
     dupl_flag = False
-	mot = 'barre'
+	mot = "barre"
     for row in gaz:
 	    if row["user"] == d["user-name"][:20] and row["text"] == d["user-text"][:280] :
 		    dupl_flag = True
