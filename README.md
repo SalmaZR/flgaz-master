@@ -1,4 +1,5 @@
 # flgaz-master
+*by Salma Zraibi and Alan Pierre.
 
 Here's the steps taken to improve the project :
 
