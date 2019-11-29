@@ -8,7 +8,6 @@ import csv
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
-import fileinput
 
 app = Flask(__name__)
 cache = Cache(app,config={'CACHE_TYPE': 'simple'})
@@ -39,16 +38,12 @@ def save_gazouille():
 
 @app.route('/timeline', methods=['GET'])
 def timeline():
-    gaz = parse_from_csv('./gazouilles.csv')
-    #filteredGaz = set(gaz)
-    #with open('./filteredGaz.csv','w') as out_file:
-     #   writer = csv.writer(out_file)
-      #  writer.write(filteredGaz)
-    return render_template("timeline.html", gaz = gaz)
+	gaz = parse_from_csv()
+	return render_template("timeline.html", gaz = gaz)
 
-def parse_from_csv(filename):
+def parse_from_csv():
 	gaz = []
-	with open(filename, 'r') as f:
+	with open('./gazouilles.csv', 'r') as f:
 		reader = csv.reader(f)
 		for row in reader:
 			gaz.append({"user":row[0], "text":row[1]})
@@ -58,7 +53,7 @@ def parse_from_csv(filename):
 def timelinePerUser(username):
 	gaz = parse_user_from_csv(username)
 	return render_template("timeline.html", gaz = gaz)
-
+				
 def parse_user_from_csv(username):
 	gazUser = []
 	with open('./gazouilles.csv', 'r') as f:
@@ -79,9 +74,8 @@ def dump_to_csv(d):
 	    with open('./gazouilles.csv', 'a', newline='', encoding='utf-8') as f:
 		    writer = csv.writer(f)
 		    writer.writerow(donnees)
-
-
-
+ 
+	
 
 #Add Login Code
 app.secret_key = 'secret_key'
@@ -114,7 +108,7 @@ def login():
         cursor.execute('SELECT * FROM accounts WHERE username = %s AND password = %s', (username, password))
         # Fetch one record and return result
         account = cursor.fetchone()
-
+		        
         if account:
             # Create session data, we can access this data in other routes
             session['loggedin'] = True
@@ -136,8 +130,8 @@ def logout():
    session.pop('username', None)
    # Redirect to login page
    return redirect(url_for('login'))
-
-
+   
+   
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     msg = ''
