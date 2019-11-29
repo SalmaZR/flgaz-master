@@ -8,6 +8,7 @@ import csv
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
+import fileinput
 
 app = Flask(__name__)
 cache = Cache(app,config={'CACHE_TYPE': 'simple'})
@@ -38,8 +39,14 @@ def save_gazouille():
 
 @app.route('/timeline', methods=['GET'])
 def timeline():
-	gaz = parse_from_csv()
-	return render_template("timeline.html", gaz = gaz)
+    filteredGaz = set() 
+    for line in fileinput.FileInput('./gazouilles.csv', inplace=1):
+        if line in filteredGaz: 
+	        continue 
+        filteredGaz.add(line)
+        print line, 
+    gaz = parse_from_csv()
+    return render_template("timeline.html", gaz = gaz)
 
 def parse_from_csv():
 	gaz = []
