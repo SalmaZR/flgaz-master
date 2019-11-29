@@ -81,10 +81,10 @@ def dump_to_csv(d):
 app.secret_key = 'secret_key'
 
 # Database Connection
-datahost = config(host)
-datauser = config(user)
-datapass = config(passwd)
-datadb = config(db)
+datahost =host()
+datauser = user()
+datapass = passwd()
+datadb = db()
 
 app.config['MYSQL_HOST'] = datahost
 app.config['MYSQL_USER'] = datauser
