@@ -90,3 +90,5 @@ In order to start the website, use `app.py`in Pythonanywhere and reload the webs
 - https://pythonspot.com/login-authentication-with-flask/
 - https://blog.pythonanywhere.com/121/
 - https://pythonhosted.org/Flask-Cache/
+- https://www.w3schools.com/python/python_howto_remove_duplicates.asp
+- https://stackoverflow.com/questions/7961363/removing-duplicates-in-lists
