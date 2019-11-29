@@ -63,11 +63,18 @@ def parse_user_from_csv(username):
 	return gazUser
 
 def dump_to_csv(d):
-	donnees = [d["user-name"][:20],d["user-text"][:280] ]
-	with open('./gazouilles.csv', 'a', newline='', encoding='utf-8') as f:
-		writer = csv.writer(f)
-		writer.writerow(donnees)
-
+    gaz = parse_from_csv()
+    donnees = [d["user-name"][:20],d["user-text"][:280] ]
+    dupl_flag = False
+    for row in gaz:
+	    if row["user"] == d["user-name"][:20] and row["text"] == d["user-text"][:280] :
+		    dupl_flag = True
+    if dupl_flag == False:
+	    with open('./gazouilles.csv', 'a', newline='', encoding='utf-8') as f:
+		    writer = csv.writer(f)
+		    writer.writerow(donnees)
+ 
+	
 
 #Add Login Code
 app.secret_key = 'secret_key'
