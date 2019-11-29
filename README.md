@@ -9,12 +9,12 @@ Here's the steps taken to improve the project :
 - Limit the number of characters in a tweet.
 - Allow search of messages by user.
 - Secure the credentials for the database.
+- Remove the duplicated messages.
 
 Here are the needed steps to make the application better :
 
 - Prevent SQL Injections.
 - Access-Control Allow Origin.
-- Remove the duplicated messages.
 
 This list will be updated depending on our advancement on the project.
 
